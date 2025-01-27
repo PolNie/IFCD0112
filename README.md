@@ -42,3 +42,6 @@ Tabla Procesadores
 | i5-10600KF | 6 | 12 |
 | i5-10500 | 6 | 12 |
 
+**Contacto Inology**
+Lourdes Manager: lhuertas@inology.com
+Recursos humanos: rrhh@inology.com
