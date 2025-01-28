@@ -3,7 +3,7 @@
 
 [Mi Github](https://github.com/PolNie)
 
-
+**Formatos**</br>
 ```c
 #include <studio.h>
 int main (void)
@@ -13,10 +13,10 @@ return r (0);
 )
 ```
 
-Ahora voy a hacer unaa pruebas de **negrita**, *cursiva*
-
+Ahora voy a hacer unaa pruebas de **negrita**, *cursiva* </br>
 Ahora voy a hacer unaa pruebas de __negrita__, _cursiva_
 
+**Tabla practica**
 |num|nombre|
 |---|------:|
 |01 |Pol Nieto Martínez|
@@ -25,7 +25,7 @@ Ahora voy a hacer unaa pruebas de __negrita__, _cursiva_
 |04 |Eric|
 
 
-Tabla Procesadores
+**Tabla Procesadores**
 | Modelo | Núcleos | Hilos |
 |---|---|---|
 | **Core i9** | | |
@@ -42,6 +42,15 @@ Tabla Procesadores
 | i5-10600KF | 6 | 12 |
 | i5-10500 | 6 | 12 |
 
-**Contacto Inology**
-Lourdes Manager: lhuertas@inology.com
+**Contacto Inology**</br>
+Lourdes Manager: lhuertas@inology.com </br>
 Recursos humanos: rrhh@inology.com
+
+**Tabla Diferencias DDR RAM**
+| Tipo | Capacidad Máx. por Módulo | Velocidad Máx. (MT/s) | Año de Lanzamiento | Voltaje (V) | Características Principales | Rango de Precio por GB (USD, aprox.) |
+|---|---|---|---|---|---|---|
+| DDR | 1 GB | 266 | 2000 | 2.5-2.6 | Primera generación DDR, densidad limitada, voltaje relativamente alto. | Difícil de determinar |
+| DDR2 | 2 GB | 533 | 2004 | 1.8 | Mayor densidad y velocidad que DDR, menor voltaje. | $2.50 - $10 |
+| DDR3 | 8 GB | >1066 | 2007 | 1.5-1.65 | Introducción de perfiles XMP, mayor densidad y velocidad, menor voltaje. | $0.50 - $5 |
+| DDR4 | 32 GB | >2133 | 2014 | 1.05-1.2 | Mayor densidad, velocidad y eficiencia energética, menor voltaje. | $0.25 - $5+ |
+| DDR5 | 128 GB | 6.4+ | 2021 | 1.2+ | Mayor densidad, velocidad y eficiencia energética, doble canal por chip, PMIC para control de voltaje y frecuencia. | $0.75 - $4+ |
