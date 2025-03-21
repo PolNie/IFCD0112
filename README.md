@@ -40,7 +40,7 @@ Para poder hacer visible la web que hemos creado tendremos que redirigir el puer
 
 Para redirigir el puerto 80 tendremos que ir abajo del codedspace donde se indica en al imagen e ir al apartado de "Puertos"
    
-![alt text](.images/image.png)
+![alt text](.images/redireccion_puerto.png)
 
 En "Puertos" simplemente le damos a "Agregar puerto", escrivimos 80 y le damos al ENTER.
 
@@ -53,7 +53,7 @@ Si aparece un error de conexion o por el estilo lo más probable es que nuestro 
 
 Para que esa web la pueda ver cualquier persona desde Internet deberás cambiar la visibilidad del puerto de Privada a Publica haciendo clic derecho encima de el puerto 80, y tal como se muestra en al imagen selecciona Visibilidad del puerto y ponla en Public
 
-![alt text](.images/image-1.png)
+![alt text](.images/visibilidad_puerto.png)
 
 ### 5. **Crear la Realtime Database en Firebase e importar la BBDD en JSON:**
 A continuación tendras que acceder a tu **Realtime Database** en Firebase. Desde allí, subir el archivo **JSON** BBDD_Completa.json que contiene las tablas de datos que queremos mostrar en la web. Esto es muy sencillo, ya que Firebase me permite subir el archivo directamente y automáticamente organiza los datos como nodos dentro de la base de datos NoSQL.
@@ -62,12 +62,96 @@ A continuación tendras que acceder a tu **Realtime Database** en Firebase. Desd
 Accede a la web de [Firebase](https://firebase.google.com/docs/database?hl=es) e inicia sesion con tu cuenta de Google en el apartado de "Accede". <br>
 Una vez iniciada la sesion iremos a "Go to console"
 
-![alt text](.images/image-2.png)
+![alt text](.images/go_to_console_firebase.png)
 
+Una vez en la consola de Firebase le daremos a "Crear un proyecto", introduciremos un nombre para este. Cuando nos pregunte por Google Analitics le daremos a que No ya que en este caso de uso no nos hara ningun tipo de falta y crearemos el proyecto.
 
+Cuando nuestro proyecto se haya creado correctamente nos aparecera la pantalla siguiente:
+
+![alt text](.images/pantalla_inicial_firebase.png)
+
+Iremos al menu de la izqiera y desplegaremos el apartado de "Compilación" y "Realtime Database".
+
+![alt text](.images/menu_lateral_realtimeDB.png)
+
+Dentro de la Realtime Database nos aparecera un boton en medio de la pantalla reclamando que creemos una nueva BBDD.
+
+![alt text](.images/crear_realtimeDB.png)
+
+Deberemos configurar de forma adecuada segun nuestras preferencias.
+En este caso en el apartado de Ubicación de la Realtime DB seleccionare la zora horaria "Bélgica (europe-west1)", y para las "Reglas de seguridad" lo dejaremos en el modo de prueba.
+
+Cuando hayamos creado la Realtime DB ya estaremos preparados para poder importar el JSON de la BBDD (en este caso utilizare el JSON de este proyecto: [BBDD_Completa.json](BBDD_Completa.json)).
+
+Para importae el fichero JSON iremos a los tres puntos situados dentro de la Realtime DB a la derecha. Nos saldran varias opciones pero seleccionaremos "Import JSON" y lo subiremos.
+
+![alt text](.images/importar_json.png)
+
+Si la importacion se ha realizado correctamente nos saldrá un popup arriba a la derecha como este:
+
+![alt text](.images/popup_correcto.png)
+
+Si da algun error probablemete sea porque el JSON tiene alguna inconsistenacia o el archivo no se formateo de forma correcta.
+
+Ahora que ya hemos importado el JSON correctamente nos queda un paso más dentro de Firebase antes de empezar a mostrar los datos desde nuestra web.
+
+Tendremos que volver a la Descripción General. En la pantalla principal nos aparecerá lo siguiente:
+
+![alt text](.images/registrar_app_web.png)
+
+La opción que en este caso nos interersa es la del icono web "</>".
+Registramos la app con un nombre identificativo y le daremos a siguiente hasta volver a la Descripción General.
+
+Iremos a "Configuracion del proyecto" y bajaremos hasta el apartado de "Tus Apps".
+
+![alt text](.images/config_proyecto.png)
+
+No mostrare mi configuracion ya que cualquiera podria conectarse a la base de datos,pero necesitaremos saber estos paramentros para poder vincular nuestra Realtime DB a la web.
+
+![alt text](.images/SDK_Firebase.png)
+
+Ahora con estos datos podemos volver al Codespace para empezar a implementar Firebase en nuestra web.
 
 ### 6. **Instalar Firebase en el Codespace:**
-   Regresé a mi Codespace y instalé el **SDK de Firebase** en el proyecto para poder interactuar con la Realtime Database. Esto me permitió obtener los datos desde Firebase y mostrarlos dinámicamente en la página.
+Una vez de nuevo en nustro Codespace instalaremos el **CLI y SDK de Firebase** en el proyecto para poder interactuar con la Realtime Database. Esto nos permitirá obtener los datos desde Firebase y mostrarlos dinámicamente en la página.
+
+#### 6.1 **Instalar Firebase CLI y SDK**
+Ejecuta el siguiente comando en la terminal para instalar Firebase CLI:
+
+```sh
+npm install -g firebase-tools firebase
+```
+
+#### 6.2 **Autenticarse en Firebase**
+Para iniciar sesión en Firebase, usa el siguiente comando:
+```sh
+firebase login --no-localhost
+```
+Sigue los pasos indicados en pantalla para completar la autenticación.
+
+#### 6.3 **Crea una Carpeta para el Proyecto**
+Crea y accede a una carpeta donde se almacenará el proyecto de Firebase:
+```sh
+mkdir proyecto_firebase
+cd proyecto_firebase
+```
+
+#### 6.4 **Inicializar Firebase**
+Dentro de la carpeta del proyecto, ejecuta:
+```sh
+firebase init
+```
+
+Durante la instalación:
+- Usa las flechas para desplazarte hasta Realtime Database.
+- Selecciónala presionando espacio.
+- Presiona Enter para continuar.
+
+Cuando se te pregunte por el proyecto, selecciona Use existing project y elige tu proyecto de Firebase.
+Si se solicita un archivo de seguridad, simplemente presiona Enter para seleccionar la opción predeterminada de Firebase.
+
+Una vez finalizado este proceso, habremos instalado y configurado Firebase correctamente en nuestro Codespace.
+
 
 ### 7. **Modificar el `index.html` para obtener los datos de la Realtime Database:**
    El último paso fue modificar mi archivo `index.html` con los parámetros necesarios para **conectar con Firebase** y obtener los datos. Usé el SDK de Firebase para hacer consultas a la base de datos y mostrar esos datos en diferentes **desplegables (selects)** en la página.
